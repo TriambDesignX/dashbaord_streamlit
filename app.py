@@ -90,6 +90,7 @@ with c5:
 
 with c6:
     st.subheader("🔥 Boiler Fuel Mix")
-    fig_fuel = px.area(df, x='Month', y=['Fuel_Wood_Kg', 'Fuel_Briquette_Kg'], 
-                       color_discrete_map={'Fuel_Wood_Kg': '#8B4513', 'Fuel_Briquette_Kg': '#D2691E'})
+    fuel_totals = df[['Fuel_Wood_Kg', 'Fuel_Briquette_Kg']].sum()
+    fig_fuel = px.pie(values=fuel_totals.values, names=['Firewood', 'Briquettes'], hole=0.4,
+                      color_discrete_sequence=['#8B4513', '#D2691E'])
     st.plotly_chart(fig_fuel, use_container_width=True)
