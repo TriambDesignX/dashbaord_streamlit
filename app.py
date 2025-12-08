@@ -29,12 +29,11 @@ if len(dates) > 0:
     df = df[(df['Month'].dt.date >= start) & (df['Month'].dt.date <= end)]
 
 # 4. TOP KPI ROW (The "Big Numbers")
-k1, k2, k3, k4, k5 = st.columns(5)
+k1, k2, k3, k4 = st.columns(4)
 k1.metric("Total Production", f"{df['Production_Pcs'].sum():,.0f} pcs")
 k2.metric("Total Cost", f"₹ {df['Total_Cost'].sum():,.0f}")
 k3.metric("Energy Intensity", f"{df['KPI_Energy_Pc'].mean():.2f} kWh/pc", delta_color="inverse")
-k4.metric("Water Intensity", f"{df['KPI_Water_Pc'].mean():.1f} L/pc", delta_color="inverse")
-k5.metric("Washing Eff.", f"{df['KPI_Wash_L_kg'].mean():.1f} L/kg", delta_color="inverse")
+k4.metric("Washing Eff.", f"{df['KPI_Wash_L_kg'].mean():.1f} L/kg", delta_color="inverse")
 
 st.markdown("---")
 
