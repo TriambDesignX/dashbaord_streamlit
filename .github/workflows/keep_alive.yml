@@ -11,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping App
-        run: curl -I https://demo-data-dashboard.streamlit.app/
+        run: curl  https://demo-data-dashboard.streamlit.app/
