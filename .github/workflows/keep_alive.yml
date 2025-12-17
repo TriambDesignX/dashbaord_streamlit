@@ -1,0 +1,14 @@
+name: Keep Streamlit Alive
+
+on:
+  schedule:
+    # Runs at minute 0, 15, 30, 45 of every hour (every 15 mins)
+    - cron: '0,15,30,45 * * * *'
+  workflow_dispatch: # Allows you to click a button to test it immediately
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping App
+        run: curl -I https://demo-data-dashboard.streamlit.app/
